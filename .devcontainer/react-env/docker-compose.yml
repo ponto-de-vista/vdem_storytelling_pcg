@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  react-app:
+    image: node:24
+    working_dir: /frontend
+    volumes:
+      - ../../frontend:/frontend
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    command: ["sleep", "infinity"]

@@ -1,0 +1,17 @@
+{
+	"name": "React Environment - Node.js & TypeScript",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "react-app",
+	"workspaceFolder": "/frontend",
+	"forwardPorts": [5173],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"statelyai.stately-vscode"
+			]
+		}
+	},
+	"remoteUser": "root"
+}

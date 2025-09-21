@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  fastapi:
+    image: python:3.11
+    working_dir: /backend
+    volumes:
+      - ../../backend:/backend
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    command: ["sleep", "infinity"]
