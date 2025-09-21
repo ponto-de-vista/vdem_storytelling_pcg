@@ -1,9 +1,15 @@
 {
-	"name": "React Environment - Node.js & TypeScript",
+	"name": "React Environment",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "react-app",
 	"workspaceFolder": "/frontend",
-	"forwardPorts": [5173],
+	"hostRequirements": {
+		"cpus": 4
+	},
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": "npm install",
+	"postCreateCommand": "",
+	"postAttachCommand": "npm run dev",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -11,7 +17,19 @@
 				"esbenp.prettier-vscode",
 				"statelyai.stately-vscode"
 			]
+		},
+		"codespaces": {
+			"openFiles": [
+				"/src/pages/home/App.tsx"
+			]
 		}
 	},
+	"portsAttributes": {
+		"5173": {
+			"label": "Application",
+			"onAutoForward": "notify"
+		}
+	},
+	"forwardPorts": [5173],
 	"remoteUser": "root"
 }
