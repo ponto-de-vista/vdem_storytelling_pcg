@@ -11,6 +11,8 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+    "types": ["@types/papaparse", "@types/plotly.js-dist-min"],
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
