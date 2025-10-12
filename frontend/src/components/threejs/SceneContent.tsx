@@ -1,21 +1,17 @@
 import { A11y } from '@react-three/a11y';
 import { Box, Plane, Text } from '@react-three/drei';
 
-// Importar o componente de acessibilidade
-
 import AnimatedCamera from './AnimatedCamera';
 import { storyPoints } from './data';
 
-// Definir as props que o componente aceita
 interface SceneContentProps {
   activeIndex: number;
-  setActiveIndex: (index: number) => void;
+  onJump: (id: number) => void;
 }
 
-// Esta versão contém os wrappers de acessibilidade
 export function SceneContent({
   activeIndex,
-  setActiveIndex,
+  onJump,
 }: SceneContentProps) {
   return (
     <>
@@ -26,12 +22,11 @@ export function SceneContent({
       </Plane>
 
       {storyPoints.map((point, index) => (
-        // Acessibilidade em ambiente 3D
         <A11y
           key={index}
           role="button"
           description={`Ir para o ponto da história ${index + 1}: ${point.title}`}
-          actionCall={() => setActiveIndex(index)}
+          actionCall={() => onJump(index)}
         >
           <group>
             <Box position={point.position} args={[2, 2, 2]} castShadow>

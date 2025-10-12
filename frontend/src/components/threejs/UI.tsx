@@ -4,30 +4,27 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { storyPoints } from './data';
 
-// Define props for the UI component for better type safety
 interface UIProps {
   activeIndex: number;
   isPopupVisible: boolean;
   onNext: () => void;
   onPrevious: () => void;
-  onExplore: () => void;
+  onViewGraph: () => void;
   onClosePopup: () => void;
 }
 
-// This component handles all the 2D HTML overlay elements
 export function UI({
   activeIndex,
   isPopupVisible,
   onNext,
   onPrevious,
-  onExplore,
+  onViewGraph,
   onClosePopup,
 }: UIProps): JSX.Element {
   const ActiveGraph = storyPoints[activeIndex].GraphComponent;
 
   return (
     <>
-      {/* 2D HTML Overlay UI */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-5 left-1/2 -translate-x-1/2 text-center">
           <h1 className="text-3xl font-bold text-gray-800">
@@ -46,7 +43,7 @@ export function UI({
             Anterior
           </button>
           <button
-            onClick={onExplore}
+            onClick={onViewGraph}
             className="px-6 py-2 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition font-semibold"
           >
             Explorar Gráfico
@@ -60,7 +57,6 @@ export function UI({
         </div>
       </div>
 
-      {/* Popup Modal for the Graph */}
       <AnimatePresence>
         {isPopupVisible && (
           <motion.div
