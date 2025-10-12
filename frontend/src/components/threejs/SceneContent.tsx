@@ -9,10 +9,7 @@ interface SceneContentProps {
   onJump: (id: number) => void;
 }
 
-export function SceneContent({
-  activeIndex,
-  onJump,
-}: SceneContentProps) {
+export function SceneContent({ activeIndex, onJump }: SceneContentProps) {
   return (
     <>
       <ambientLight intensity={0.5} />

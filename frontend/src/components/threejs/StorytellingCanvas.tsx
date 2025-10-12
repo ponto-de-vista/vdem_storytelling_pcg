@@ -1,10 +1,9 @@
-import { Suspense } from 'react';
-
 import { navigationStorytellingMachine } from '@/machines/navigationStorytellingMachine';
 
-import { useMachine } from '@xstate/react';
+import { Suspense } from 'react';
 
 import { Canvas } from '@react-three/fiber';
+import { useMachine } from '@xstate/react';
 
 import { SceneContent } from './SceneContent';
 import { UI } from './UI';
@@ -39,10 +38,7 @@ export default function StorytellingCanvas() {
     <div className="fixed top-0 left-0 w-full h-full bg-gray-100">
       <Canvas shadows camera={{ position: [0, 5, 20], fov: 50 }}>
         <Suspense fallback={null}>
-          <SceneContent
-            activeIndex={activeIndex}
-            onJump={handleJump}
-          />
+          <SceneContent activeIndex={activeIndex} onJump={handleJump} />
         </Suspense>
       </Canvas>
 
