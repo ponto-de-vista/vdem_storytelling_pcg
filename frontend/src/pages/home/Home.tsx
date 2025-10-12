@@ -41,7 +41,7 @@ function Home() {
           </div>
 
           {/* Card 2: Regional Polyarchy Chart */}
-          <div className="bg-white rounded-xl shadow-md p-4 flex flex-col h-[60vh]">
+          <div className="bg-white rounded-xl shadow-md p-4 flex flex-col">
             <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">
               Média e Mediana de Poliarquia por Região
             </h2>
@@ -51,7 +51,7 @@ function Home() {
           </div>
 
           {/* Card 3: Regime Distribution Chart */}
-          <div className="bg-white rounded-xl shadow-md p-4 flex flex-col h-[60vh]">
+          <div className="bg-white rounded-xl shadow-md p-4 flex flex-col">
             <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">
               Distribuição de Regimes no Mundo
             </h2>
