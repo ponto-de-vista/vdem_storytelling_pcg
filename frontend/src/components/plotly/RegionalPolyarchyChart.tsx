@@ -300,14 +300,15 @@ const RegionalPolyarchyChart = (): JSX.Element => {
     ];
 
     const layout: Partial<Layout> = {
+      height: 500,
       title: { text: 'Média e Mediana de Poliarquia por Região' },
-      grid: { rows: 2, columns: 1, pattern: 'independent' },
+      grid: { rows: 2, columns: 1, pattern: 'coupled', ygap: 0.6 },
       yaxis: { title: { text: 'Média Poliarquia' }, range: [0, 1] },
       yaxis2: { title: { text: 'Mediana Poliarquia' }, range: [0, 1] },
       updatemenus: [
         {
           x: 0.1,
-          y: 0,
+          y: -1,
           yanchor: 'top',
           xanchor: 'right',
           showactive: false,
