@@ -21,7 +21,9 @@ export function UI({
   onViewGraph,
   onClosePopup,
 }: UIProps): JSX.Element {
-  const ActiveGraph = storyPoints[activeIndex].GraphComponent;
+  const storyPoint = storyPoints[activeIndex];
+
+  const ActiveGraph = storyPoint.GraphComponent;
 
   return (
     <>

@@ -25,7 +25,7 @@ export const navigationStorytellingMachine = setup({
         },
         'event.prev': {
           actions: assign({
-            graphId: ({ context }) => (context.graphId - 1) % 4,
+            graphId: ({ context }) => (context.graphId - 1 + 4) % 4,
           }),
         },
         'event.jump': {
