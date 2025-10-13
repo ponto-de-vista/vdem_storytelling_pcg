@@ -1,5 +1,6 @@
 import { navigationStorytellingMachine } from '@/machines/navigationStorytellingMachine';
 
+import { useEffect } from 'react';
 import { Suspense } from 'react';
 
 import { Canvas } from '@react-three/fiber';
@@ -33,6 +34,31 @@ export default function StorytellingCanvas() {
   const handleClosePopup = () => {
     send({ type: 'event.close' });
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case 'ArrowRight':
+          send({ type: 'event.next' });
+          break;
+        case 'ArrowLeft':
+          send({ type: 'event.prev' });
+          break;
+        case 'Enter':
+          send({ type: 'event.view' });
+          break;
+        case 'Escape':
+          send({ type: 'event.close' });
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [send]);
 
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-gray-100">
