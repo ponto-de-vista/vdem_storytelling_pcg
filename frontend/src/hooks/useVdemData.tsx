@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import * as Papa from 'papaparse';
 
-// The complete interface for a row in your CSV, needed for all charts
 export interface CsvRow {
   country_name: string;
   year: number;
@@ -10,7 +9,6 @@ export interface CsvRow {
   v2x_polyarchy: number;
 }
 
-// The data structure returned by our custom hook
 interface VdemData {
   data: CsvRow[];
   loading: boolean;
@@ -25,7 +23,6 @@ export const useVdemData = (): VdemData => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Path is relative to the public folder
         const response = await fetch('./ert.csv');
         const csvText = await response.text();
 
@@ -35,7 +32,6 @@ export const useVdemData = (): VdemData => {
           skipEmptyLines: true,
         });
 
-        // Filter out any rows with incomplete essential data
         const cleanedData = parsedResult.data.filter(
           row =>
             row.country_name &&
@@ -46,7 +42,6 @@ export const useVdemData = (): VdemData => {
 
         setData(cleanedData);
 
-        // Get a sorted list of unique years from the data
         const uniqueYears = [...new Set(cleanedData.map(row => row.year))].sort(
           (a, b) => a - b
         );
@@ -59,7 +54,7 @@ export const useVdemData = (): VdemData => {
     };
 
     fetchData();
-  }, []); // Empty dependency array means this runs only once
+  }, []);
 
   return { data, loading, years };
 };

@@ -18,13 +18,11 @@ interface DataByYear {
 const ChoroplethMap = (): JSX.Element => {
   const { data, loading, years } = useVdemData();
 
-  // useMemo will prevent re-calculating the chart data on every render
   const { initialData, frames, layout } = useMemo(() => {
     if (loading || data.length === 0) {
       return { initialData: [], frames: [], layout: {} };
     }
 
-    // Process data for Plotly animation
     const dataByYear = data.reduce((acc: DataByYear, row: CsvRow) => {
       const { country_name, year, v2x_regime } = row;
       if (!acc[year]) {
@@ -139,7 +137,7 @@ const ChoroplethMap = (): JSX.Element => {
   }, [loading, data, years]);
 
   if (loading) {
-    return <p>Loading map data...</p>;
+    return <p>Carregando...</p>;
   }
 
   return (

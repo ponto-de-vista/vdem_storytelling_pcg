@@ -7,10 +7,8 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    // Main container with a light gray background and padding
     <main className="bg-gray-100 min-h-screen p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
         <header className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
             Dashboard de Análise Democrática
@@ -28,9 +26,7 @@ function Home() {
           </div>
         </header>
 
-        {/* Responsive Grid for the Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Card 1: Choropleth Map (takes up more space) */}
           <div className="lg:col-span-2 bg-white rounded-xl shadow-md p-4 flex flex-col h-[80vh]">
             <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">
               Índices de Tipo de Governo por Ano
@@ -40,7 +36,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Card 2: Regional Polyarchy Chart */}
           <div className="bg-white rounded-xl shadow-md p-4 flex flex-col">
             <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">
               Média e Mediana de Poliarquia por Região
@@ -50,7 +45,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Card 3: Regime Distribution Chart */}
           <div className="bg-white rounded-xl shadow-md p-4 flex flex-col">
             <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">
               Distribuição de Regimes no Mundo
@@ -60,7 +54,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Card 4: Brazil Polyarchy Chart */}
           <div className="lg:col-span-2 bg-white rounded-xl shadow-md p-4 flex flex-col h-[60vh]">
             <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">
               Poliarquia do Brasil ao Longo do Tempo

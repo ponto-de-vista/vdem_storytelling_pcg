@@ -5,7 +5,6 @@ import RegionalPolyarchyChart from '@/components/plotly/RegionalPolyarchyChart';
 
 import * as THREE from 'three';
 
-// Define our story points: position, title, and the graph component
 export const storyPoints = [
   {
     position: new THREE.Vector3(-10, 1.5, 0),

@@ -3,10 +3,8 @@ import { type CsvRow, useVdemData } from '@/hooks/useVdemData';
 import { type JSX, useMemo } from 'react';
 import Plot from 'react-plotly.js';
 
-// Import the necessary types from Plotly
 import { type Data, type Frame, type Layout } from 'plotly.js-dist-min';
 
-// Helper functions (unchanged)
 const getMean = (arr: number[]) =>
   arr.length > 0 ? arr.reduce((acc, val) => acc + val, 0) / arr.length : 0;
 const getMedian = (arr: number[]) => {
@@ -18,7 +16,6 @@ const getMedian = (arr: number[]) => {
     : (sorted[mid - 1] + sorted[mid]) / 2;
 };
 
-// Regions definition (unchanged)
 const REGIONS: { [key: string]: string[] } = {
   América: [
     'Mexico',
@@ -218,8 +215,6 @@ const REGIONS: { [key: string]: string[] } = {
 const RegionalPolyarchyChart = (): JSX.Element => {
   const { data, loading, years } = useVdemData();
 
-  // FIX 1: Rename `frames` to `plotFrames` to avoid conflict with `window.frames`
-  // FIX 2: Correctly type the destructured return value from useMemo
   const { traces, layout, plotFrames } = useMemo(() => {
     if (loading || data.length === 0) {
       return { traces: [], layout: {}, plotFrames: [] };
@@ -265,7 +260,6 @@ const RegionalPolyarchyChart = (): JSX.Element => {
         firstYearData.push(...yearlyStats);
       }
 
-      // Push to the renamed variable
       plotFrames.push({
         name: String(year),
         data: [
@@ -281,7 +275,6 @@ const RegionalPolyarchyChart = (): JSX.Element => {
       });
     }
 
-    // FIX 2: Apply the specific `Data[]` type to remove the need for `as any`
     const initialTraces: Data[] = [
       {
         x: firstYearData.map(d => d.region),
@@ -354,7 +347,6 @@ const RegionalPolyarchyChart = (): JSX.Element => {
       ],
     };
 
-    // Return the renamed variable
     return { traces: initialTraces, layout, plotFrames };
   }, [loading, data, years]);
 
