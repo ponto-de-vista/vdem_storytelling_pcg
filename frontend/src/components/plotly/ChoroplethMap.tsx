@@ -44,9 +44,31 @@ const ChoroplethMap = (): JSX.Element => {
         locations: firstYearData.locations,
         z: firstYearData.z,
         text: firstYearData.text,
-        colorscale: 'RdYlBu',
+        colorscale: [
+          [0.0, 'rgb(215, 48, 39)'],
+          [0.25, 'rgb(215, 48, 39)'],
+
+          [0.25, 'rgb(253, 174, 97)'],
+          [0.5, 'rgb(253, 174, 97)'],
+
+          [0.5, 'rgb(171, 217, 233)'],
+          [0.75, 'rgb(171, 217, 233)'],
+
+          [0.75, 'rgb(69, 117, 180)'],
+          [1.0, 'rgb(69, 117, 180)'],
+        ],
         zmin: 0,
         zmax: 3,
+        colorbar: {
+          tickmode: 'array',
+          tickvals: [0.375, 1.125, 1.875, 2.625],
+          ticktext: [
+            'Autocracia Fechada',
+            'Autocracia Eleitoral',
+            'Democracia Eleitoral',
+            'Democracia Liberal',
+          ],
+        },
       },
     ];
 
@@ -67,7 +89,7 @@ const ChoroplethMap = (): JSX.Element => {
         showcoastlines: true,
         coastlinecolor: 'Black',
         showland: true,
-        landcolor: 'lightgrey',
+        landcolor: 'white',
       },
       margin: { r: 0, t: 40, l: 0, b: 0 },
       updatemenus: [
